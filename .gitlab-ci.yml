@@ -1,0 +1,16 @@
+stages:
+  - build
+
+before_script:
+  - git submodule init
+  - git submodule update
+  # For lack of access to anaconda from PAN
+  - . /home/Alistair.Adcroft/bin/anaconda3/bin/activate py3
+
+# Test
+build:
+  stage: build
+  tags:
+    - pan
+  script:
+    - make
