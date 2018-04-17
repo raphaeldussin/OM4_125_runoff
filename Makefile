@@ -6,13 +6,13 @@ all: $(TARGS) hash.md5
 	md5sum -c hash.md5
 
 ocean_hgrid.nc ocean_mask.nc:
-	wget ftp://ftp.gfdl.noaa.gov/home/aja/OM4_025_grid.unpacked/$@
+	wget -nv ftp://ftp.gfdl.noaa.gov/home/aja/OM4_025_grid.unpacked/$@
 	md5sum -c $@.md5
 runoff.daitren.clim.v2011.02.10.nc:
-	wget http://data1.gfdl.noaa.gov/~nnz/mom4/COREv2/data_IAF/CORRECTED/calendar_years/runoff.daitren.clim.10FEB2011.nc -O $@
+	wget -nv http://data1.gfdl.noaa.gov/~nnz/mom4/COREv2/data_IAF/CORRECTED/calendar_years/runoff.daitren.clim.10FEB2011.nc -O $@
 	md5sum -c $@.md5
 runoff.daitren.iaf.20120419.nc:
-	wget http://data1.gfdl.noaa.gov/~nnz/mom4/COREv2/data_IAF/CORRECTED/calendar_years/runoff.daitren.iaf.20120419.nc
+	wget -nv http://data1.gfdl.noaa.gov/~nnz/mom4/COREv2/data_IAF/CORRECTED/calendar_years/runoff.daitren.iaf.20120419.nc
 	md5sum -c $@.md5
 
 runoff.daitren.clim.1440x1080.v20180328.nc: runoff.daitren.clim.v2011.02.10.nc ocean_hgrid.nc ocean_mask.nc
