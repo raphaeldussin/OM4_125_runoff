@@ -1,3 +1,6 @@
 [submodule "regrid_runoff"]
 	path = regrid_runoff
 	url = https://github.com/adcroft/regrid_runoff.git
+[submodule "pad_JRA"]
+	path = pad_JRA
+	url = https://github.com/adcroft/pad_JRA.git
