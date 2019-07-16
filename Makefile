@@ -6,7 +6,7 @@ DEPS = ocean_hgrid.nc ocean_mask.nc runoff.daitren.clim.v2011.02.10.nc runoff.da
 COMPRESS =
 
 all: $(TARGS) hash.md5
-#	md5sum -c hash.md5
+	md5sum -c hash.md5
 
 ocean_hgrid.nc ocean_mask.nc:
 	wget -nv ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing/OM4_025/$@
