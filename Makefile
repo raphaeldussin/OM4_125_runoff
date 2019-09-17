@@ -16,9 +16,9 @@ runoff.daitren.iaf.20120419.nc:
 	md5sum -c $@.md5
 
 runoff.daitren.clim.1440x1080.v20180328.nc: runoff.daitren.clim.v2011.02.10.nc ocean_hgrid.nc ocean_mask.nc
-	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc runoff.daitren.clim.v2011.02.10.nc --fms $@
+	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc runoff.daitren.clim.v2011.02.10.nc --fms --fmst $@
 runoff.daitren.iaf.1440x1080.v20180328.nc: runoff.daitren.iaf.20120419.nc ocean_hgrid.nc ocean_mask.nc
-	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc runoff.daitren.iaf.20120419.nc --fms -n 720 $@
+	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc runoff.daitren.iaf.20120419.nc --fms -n 720 --fmst $@
 
 hash.md5: | $(TARGS)
 	md5sum $(TARGS) > $@
