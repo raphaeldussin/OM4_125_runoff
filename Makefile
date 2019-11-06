@@ -6,16 +6,16 @@ DEPS = ocean_hgrid.nc ocean_mask.nc runoff.daitren.clim.v2011.02.10.nc runoff.da
 COMPRESS =
 
 all: $(TARGS) hash.md5
-	md5sum -c hash.md5
+	#md5sum -c hash.md5
 
 ocean_hgrid.nc ocean_mask.nc:
-	wget -nv ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing/OM4_025/$@
-	md5sum -c $@.md5
+	#wget -nv ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing/OM4_025/$@
+	#md5sum -c $@.md5
 
 friver_%padded.nc: $(JRA_DIR)/friver_%padded.nc
-	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc $< --fms -r friver $(COMPRESS) $@
+	./regrid_runoff/regrid_runoff.py --progress --fast_pickle ocean_hgrid.nc ocean_mask.nc $< --fms -r friver $(COMPRESS) $@
 licalvf_%padded.nc: $(JRA_DIR)/licalvf_%padded.nc
-	./regrid_runoff/regrid_runoff.py --fast_pickle ocean_hgrid.nc ocean_mask.nc $< --fms -r licalvf $(COMPRESS) $@
+	./regrid_runoff/regrid_runoff.py --progress --fast_pickle ocean_hgrid.nc ocean_mask.nc $< --fms -r licalvf $(COMPRESS) $@
 %padded.compressed.nc: %padded.nc
 	nccopy -d 9 $< $@
 
