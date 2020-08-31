@@ -1,6 +1,5 @@
 JRA_DIR = pad_JRA
 JRA_FILES = $(wildcard $(JRA_DIR)/friver_*.nc $(JRA_DIR)/licalvf_*.nc)
-#JRA_FILES = pad_JRA/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_20180101-20181231.padded.nc
 TARGS = $(subst padded.,padded.compressed.,$(notdir $(JRA_FILES)))
 DEPS = ocean_hgrid.nc ocean_mask.nc runoff.daitren.clim.v2011.02.10.nc runoff.daitren.iaf.20120419.nc
 COMPRESS =
